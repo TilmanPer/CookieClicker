@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="./assets/images/cookie.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="./components/sidebar/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="./components/upgrades/upgrades.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./game/game.css">
+    <title>Cookie Clicker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700" rel="stylesheet">
+</head>
+
+<body>
+    <div id="stats">
+        <h1 id="score">0</h1>
+        <p id="pointsPerClick">Points Per Click: 1</p>
+        <p id="autoClicker">Auto Clicker: 0 cps</p>
+        <p id="sweetSpotChance">Sweet Spot Chance: 0%</p>
+        <p id="sweetSpotMultiplier">Sweet Spot Amount: 0</p>
+    </div>
+    <div id="gameField" class="game-container">
+        <button id="clicker" onmousedown="handleClick(); playSound(popSound)">
+            <img src="./assets/images/cookie.png" alt="Cookie Clicker" draggable="false">
+            <!-- Add your cookie image here -->
+        </button>
+        <div id="autoClickerContainer">
+            <div class="autoClicker" id="autoClicker1"></div>
+            <div class="autoClicker" id="autoClicker2"></div>
+            <div class="autoClicker" id="autoClicker3"></div>
+            <div class="autoClicker" id="autoClicker4"></div>
+            <div class="autoClicker" id="autoClicker5"></div>
+        </div>
+    </div>
+    <div class="separator">UPGRADES</div>
+    <div id="upgradeContainer" class="upgrade-container">
+        <div id="upgrades">
+            <button class="upgrade-button" onclick="upgradePointsPerClick()">Points Per Click<p id="pointsPerClickCost">
+                    0</p></button>
+            <button class="upgrade-button" onclick="upgradeClickMultiplier()">Click Multiplier<p
+                    id="clickMultiplierCost">0</p></button>
+            <button class="upgrade-button" onclick="upgradeAutoClickerAmount()">Auto Clicker Amount<p
+                    id="autoClickerAmountCost">0</p></button>
+            <button class="upgrade-button" onclick="upgradeAutoClickerSpeed()">Auto Clicker Speed<p
+                    id="autoClickerSpeedCost">0</p></button>
+            <button class="upgrade-button" onclick="upgradeSweetSpotChance()">Sweet Spot Chance<p
+                    id="sweetSpotChanceCost">0</p>
+            </button>
+            <button class="upgrade-button" onclick="upgradeSweetSpotMultiplier()">Sweet Spot Multiplier<p
+                    id="sweetSpotMultiplierCost">0</p>
+            </button>
+            <button class="upgrade-button" onclick="upgradeAutoClickerMultiplier()">Auto Clicker Multiplier<p
+                    id="autoClickerMultiplierCost">0</p>
+            </button>
+            <button class="upgrade-button disabled" onclick="">COMING SOON<p id=""></p>
+            </button>
+
+        </div>
+    </div>
+    <script src="sound.js"></script>
+    <script src="./game/game.js"></script>
+    <script src="./components/upgrades/upgrades.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

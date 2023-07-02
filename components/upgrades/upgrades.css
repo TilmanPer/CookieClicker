@@ -1,0 +1,116 @@
+.upgrade-container {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  padding-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 100%;
+}
+
+#upgrades {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+}
+
+.upgrade-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--accent-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.upgrade-button:hover {
+  filter: saturate(150%);
+  transform: scale(1.01);
+  box-shadow: 8px 8px 0 var(--accent-color);
+}
+
+.disabled {
+  pointer-events: none;
+  user-select: none;
+  filter: grayscale(100%);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 170px;
+  left: 0;
+  z-index: 2;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 5px solid var(--secondary-color);
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1800px) {
+  /* Adjust padding and height for smaller screens */
+  #upgrades {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Adjust padding and height for smaller screens */
+  #upgrades {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .upgrade-button {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+  .upgrade-container {
+    padding: 10px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Adjust font size and padding for smaller screens */
+  .upgrade-button {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .separator {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /* Further adjust font size for even smaller screens */
+  .upgrade-button {
+    font-size: 0.8rem;
+  }
+
+  .separator {
+    font-size: 1.5rem;
+  }
+}

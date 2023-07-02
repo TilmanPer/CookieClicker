@@ -1,0 +1,93 @@
+.game-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#clicker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  background-color: #411900;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 1);
+  animation: clickerHover 1s infinite;
+}
+
+#clicker:active {
+  animation: none;
+  transform: scale(0.99) translate(-50%, -50%);
+}
+
+#clicker img {
+  max-width: 100%;
+  height: auto;
+}
+
+.autoClicker {
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+}
+
+.sweet-spot {
+  filter: saturate(150%);
+}
+
+/* Animations */
+
+@keyframes clickerHover {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    transform: scale(1.01) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  /* Adjust size and position for smaller screens */
+  #clicker {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Further adjust size and position for smaller screens */
+  #clicker {
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /* Further adjust size and position for even smaller screens */
+  #clicker {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  /* Adjust position for screens with limited height */
+  #clicker {
+    top: 40%;
+  }
+}
