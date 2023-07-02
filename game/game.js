@@ -9,7 +9,7 @@ const cookie = document.getElementById("clicker");
 
 let soundInterval;
 
-let cookies = 999999;
+let cookies = 0;
 
 //variables for upgrades
 let pointsPerClick = 1;
