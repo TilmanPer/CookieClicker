@@ -21,6 +21,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  user-select: none;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 1);
   animation: clickerHover 1s infinite;
 }
