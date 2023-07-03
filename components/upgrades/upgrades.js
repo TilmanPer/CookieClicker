@@ -102,7 +102,7 @@ function upgradeSweetSpotMultiplier() {
 //other functions
 
 function addAutoClicker() {
-    
+
 }
 
 function canPurchase(cost) {
@@ -121,8 +121,27 @@ function canPurchase(cost) {
     return false;
 }
 
+let tooltipTimer;
+buttons = document.getElementsByClassName("upgrade-button");
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("mouseenter", function () {
+        tooltiptimer = setTimeout(() => {
+            tooltip = document.createElement("div");
+            tooltip.classList.add("tooltip");
+            tooltip.innerText = buttons[i].getAttribute("data-tooltip");
+            buttons[i].appendChild(tooltip);
+        }, 1000);
+    });
+    buttons[i].addEventListener("mouseleave", function () {
+        clearTimeout(tooltiptimer);
+        if (tooltip) {
+            tooltip.remove();
+        }
+    });
+}
+
+
 function updateShop() {
-    //round up
     pointsPerClickCostContainer.innerText = convertNumber(costvariables.pointsPerClickCost);
     clickMultiplierCostContainer.innerText = convertNumber(costvariables.clickMultiplierCost);
     autoClickerAmountCostContainer.innerText = convertNumber(costvariables.autoClickerAmountCost);
