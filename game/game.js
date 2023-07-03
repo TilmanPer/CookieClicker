@@ -5,6 +5,7 @@ const autoClickerContainer = document.getElementById("autoClicker");
 const sweetSpotChanceContainer = document.getElementById("sweetSpotChance");
 const sweetSpotMultiplierContainer = document.getElementById("sweetSpotMultiplier");
 const scoreContainer = document.getElementById("score");
+const pointsPerSecond = document.getElementById("pointsPerSecond");
 const cookie = document.getElementById("clicker");
 
 let soundInterval;
@@ -33,6 +34,7 @@ function updateStats() {
     sweetSpotChanceContainer.innerText = `Sweet Spot Chance: ${statvariables.sweetSpotChance}%`;
     sweetSpotMultiplierContainer.innerText = "Sweet Spot Multiplier: " + statvariables.sweetSpotMultiplier;
     scoreContainer.innerText = convertNumber(cookies);
+
 
     saveProgressToLocalStorage();
 }
@@ -159,4 +161,11 @@ function createIncrementPopupAtMousePosition(amount, sweetSpot) {
     setTimeout(() => {
         popup.remove();
     }, 1000);
+}
+
+let perviousCookies = cookies;
+function calculatePointsPerInterval(){
+    let pointsPerSecond = cookies - perviousCookies;
+    perviousCookies = cookies;
+    return pointsPerSecond;
 }

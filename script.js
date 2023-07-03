@@ -38,10 +38,13 @@ function loadProgressFromLocalStorage() {
 }
 
 
-function initiateGame(){
+function initiateGame() {
     loadProgressFromLocalStorage();
     updateShop();
     if (statvariables.autoClickerAmount > 0) {
         handleAutoClicker();
     }
+    setInterval(() => {
+        pointsPerSecond.innerText = `Points/s: ${convertNumber(calculatePointsPerInterval())}`;
+    }, 1000);
 }
