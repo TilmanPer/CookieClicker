@@ -99,14 +99,10 @@ function upgradeSweetSpotMultiplier() {
     updateShop();
 }
 
-
 //other functions
 
 function addAutoClicker() {
-    const autoClicker = document.createElement("div");
-    autoClicker.classList.add("autoClicker");
-    autoClicker.classList.add("autoClicker" + statvariables.autoClickerAmount);
-    autoClickerContainer.appendChild(autoClicker);
+    
 }
 
 function canPurchase(cost) {

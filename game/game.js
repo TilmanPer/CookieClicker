@@ -9,6 +9,7 @@ const pointsPerSecond = document.getElementById("pointsPerSecond");
 const cookie = document.getElementById("clicker");
 
 let soundInterval;
+let simulateClickers;
 
 let cookies = localStorage.getItem("cookies") ? parseInt(localStorage.getItem("cookies")) : 0;
 
@@ -29,10 +30,10 @@ let truePointsPerClick = statvariables.pointsPerClick * statvariables.clickMulti
 function updateStats() {
     truePointsPerClick = statvariables.pointsPerClick * statvariables.clickMultiplier;
 
-    pointsPerClickContainer.innerText = `Cookies Per Click: ${statvariables.pointsPerClick} x${statvariables.clickMultiplier.toFixed(1)}`;
-    autoClickerContainer.innerText = `Auto Clicker: ${(statvariables.autoClickerAmount * statvariables.autoClickerMultiplier)}/${((1 / statvariables.autoClickerSpeed).toFixed(2))}s`;
-    sweetSpotChanceContainer.innerText = `Sweet Spot Chance: ${statvariables.sweetSpotChance}%`;
-    sweetSpotMultiplierContainer.innerText = "Sweet Spot Multiplier: " + statvariables.sweetSpotMultiplier;
+    pointsPerClickContainer.innerText = `Cookies Per Click: ${convertNumber(statvariables.pointsPerClick)} x${statvariables.clickMultiplier.toFixed(1)}`;
+    autoClickerContainer.innerText = `Auto Clicker: ${convertNumber(statvariables.autoClickerAmount * statvariables.autoClickerMultiplier)}/${((1 / statvariables.autoClickerSpeed).toFixed(2))}s`;
+    sweetSpotChanceContainer.innerText = `Sweet Spot Chance: ${convertNumber(statvariables.sweetSpotChance)}%`;
+    sweetSpotMultiplierContainer.innerText = "Sweet Spot Multiplier: " + convertNumber(statvariables.sweetSpotMultiplier);
     scoreContainer.innerText = convertNumber(cookies);
 
 
@@ -78,8 +79,7 @@ function simulateClick(sound, sweetSpot, clickMultiplier) {
     cookies += amount;
     scoreContainer.innerText = convertNumber(cookies);
     localStorage.setItem("cookies", cookies);
-    createIncrementPopup(amount, sweetSpot);
-    console.log(cookies);
+    createIncrementPopup(amount * statvariables.autoClickerAmount * statvariables.autoClickerMultiplier, sweetSpot);
     if (sound) {
         playSoundVolume(popSound, 0.05);
     }
@@ -92,16 +92,13 @@ function handleAutoClicker() {
         playSoundVolume(popSound, 0.05);
     }, 1000 / statvariables.autoClickerSpeed);
 
-    for (let i = 0; i < statvariables.autoClickerAmount * statvariables.autoClickerMultiplier; i++) {
-
-        if (window[`autoClicker${i}`]) {
-            clearInterval(window[`autoClicker${i}`]);
-        }
-
-        window[`autoClicker${i}`] = setInterval(() => {
-            simulateClick(false, false, false);
-        }, 1000 / statvariables.autoClickerSpeed);
-    }
+    clearInterval(simulateClickers);
+    simulateClickers = setInterval(() => {
+        cookies += statvariables.pointsPerClick * statvariables.autoClickerAmount * statvariables.autoClickerMultiplier;
+        scoreContainer.innerText = convertNumber(cookies);
+        localStorage.setItem("cookies", cookies);
+        createIncrementPopup(statvariables.pointsPerClick * statvariables.autoClickerAmount * statvariables.autoClickerMultiplier, false);
+    }, 1000 / statvariables.autoClickerSpeed);
 }
 
 function hitSweetSpot() {
@@ -129,9 +126,8 @@ function createIncrementPopup(amount, sweetSpot) {
     let popup = document.createElement("div");
     popup.classList.add("increment-popup");
     //place in cookie random
-    popup.style.left = `${cookie.offsetLeft}px`;
-    popup.style.top = `${(cookie.offsetHeight / 2)}px`;
-    console.log(cookie.offsetHeight);
+    popup.style.left = `${cookie.offsetLeft - cookie.offsetWidth / 2 + Math.random() * cookie.offsetWidth}px`;
+    popup.style.top = `${cookie.offsetTop - cookie.offsetHeight / 2 + Math.random() * cookie.offsetHeight}px`;
     if (sweetSpot) {
         popup.classList.add("popup-sweet-spot");
     }
@@ -164,7 +160,7 @@ function createIncrementPopupAtMousePosition(amount, sweetSpot) {
 }
 
 let perviousCookies = cookies;
-function calculatePointsPerInterval(){
+function calculatePointsPerInterval() {
     let pointsPerSecond = cookies - perviousCookies;
     perviousCookies = cookies;
     return pointsPerSecond;

@@ -47,4 +47,18 @@ function initiateGame() {
     setInterval(() => {
         pointsPerSecond.innerText = `Cookies/s: ${convertNumber(calculatePointsPerInterval())}`;
     }, 1000);
+
+}
+
+document.onkeydown = (e => {
+    if (e.key === 'r') {
+        resetProgress();
+    }
+});
+
+function resetProgress() {
+    if (confirm("Are you sure you want to reset your progress?")) {
+        localStorage.clear();
+        location.reload();
+    }
 }
