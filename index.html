@@ -22,18 +22,14 @@
         <p id="autoClicker">Auto Clicker: 0 cps</p>
         <p id="sweetSpotChance">Sweet Spot Chance: 0%</p>
         <p id="sweetSpotMultiplier">Sweet Spot Amount: 0</p>
+        <p id="pointsPerSecond">Points Per Second: 0</p>
     </div>
     <div id="gameField" class="game-container">
-        <button id="clicker" onmousedown="handleClick(); playSound(popSound)">
+        <button id="clicker" onmousedown="event.preventDefault(); handleClick(); playSound(popSound)">
             <img src="./assets/images/cookie.png" alt="Cookie Clicker" draggable="false">
             <!-- Add your cookie image here -->
         </button>
         <div id="autoClickerContainer">
-            <div class="autoClicker" id="autoClicker1"></div>
-            <div class="autoClicker" id="autoClicker2"></div>
-            <div class="autoClicker" id="autoClicker3"></div>
-            <div class="autoClicker" id="autoClicker4"></div>
-            <div class="autoClicker" id="autoClicker5"></div>
         </div>
     </div>
     <div class="separator">UPGRADES</div>
