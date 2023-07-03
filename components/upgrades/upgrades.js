@@ -18,7 +18,7 @@ let sweetSpotMultiplierCost = 1000000;
 
 //upgrade functions
 function upgradePointsPerClick() {
-    if (cookies >= pointsPerClickCost) {
+    if (canPurchase(pointsPerClickCost)) {
         cookies -= pointsPerClickCost;
         pointsPerClick += 1;
         pointsPerClickCost *= 1.15;
@@ -28,7 +28,7 @@ function upgradePointsPerClick() {
 }
 
 function upgradeClickMultiplier() {
-    if (cookies >= clickMultiplierCost) {
+    if (canPurchase(clickMultiplierCost)) {
         cookies -= clickMultiplierCost;
         clickMultiplier += 0.1;
         clickMultiplierCost *= 1.15;
@@ -114,9 +114,10 @@ function canPurchase(cost) {
     let activeElement = document.activeElement;
     if (!activeElement.classList.contains("disabled")) {
         activeElement.classList.add("disabled");
-
+        activeElement.classList.add("shake");
         setTimeout(() => {
             activeElement.classList.remove("disabled");
+            activeElement.classList.remove("shake");
         }, 300);
     }
     return false;

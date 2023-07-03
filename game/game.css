@@ -1,9 +1,9 @@
-.game-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #clicker {
@@ -46,6 +46,21 @@
   filter: saturate(150%);
 }
 
+.popup-sweet-spot {
+  color: var(--accent-color);
+ text-shadow: 2px 1px 0 var(--secondary-color);
+ font-size: 4rem;
+}
+
+.increment-popup {
+  position: absolute;
+  animation: incrementFadeAndMoveUp 1s;
+  animation-fill-mode: forwards;
+  user-select: none;
+  pointer-events: none;
+  font-size: 2rem;
+}
+
 /* Animations */
 
 @keyframes clickerHover {
@@ -57,6 +72,20 @@
   }
   100% {
     transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes incrementFadeAndMoveUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%);
   }
 }
 

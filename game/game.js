@@ -36,15 +36,18 @@ function updateStats() {
 function handleClick() {
     let amount = 0;
     amount += truePointsPerClick;
+    let sweetSpot = false;
 
     //sweet spot
     if (Math.random() * 100 < sweetSpotChance) {
+        sweetSpot = true;
         amount *= sweetSpotMultiplier;
         hitSweetSpot();
     }
 
     cookies += amount;
     scoreContainer.innerText = convertNumber(cookies);
+    createIncrementPopupAtMousePosition(amount, sweetSpot);
 }
 
 /**
@@ -108,4 +111,24 @@ function convertNumber(number) {
         let formattedNumber = (number / Math.pow(10, suffixIndex * 6)).toFixed(2);
         return formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + suffix;
     }
+}
+
+function createIncrementPopupAtMousePosition(amount, sweetSpot) {
+    let popup = document.createElement("div");
+    //get mouse position without event
+    let mouseX = window.event.clientX;
+    let mouseY = window.event.clientY;
+
+    popup.classList.add("increment-popup");
+    popup.innerText = `+${convertNumber(amount)}`;
+    popup.style.left = `${mouseX}px`;
+    popup.style.top = `${mouseY}px`;
+    if (sweetSpot) {
+        popup.classList.add("popup-sweet-spot");
+    }
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        popup.remove();
+    }, 1000);
 }
