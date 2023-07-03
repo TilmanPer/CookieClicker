@@ -123,7 +123,6 @@ function canPurchase(cost) {
     return false;
 }
 
-
 function updateShop() {
     //round up
     pointsPerClickCostContainer.innerText = convertNumber(pointsPerClickCost);
