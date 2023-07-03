@@ -29,7 +29,7 @@ let truePointsPerClick = statvariables.pointsPerClick * statvariables.clickMulti
 function updateStats() {
     truePointsPerClick = statvariables.pointsPerClick * statvariables.clickMultiplier;
 
-    pointsPerClickContainer.innerText = `Points Per Click: ${statvariables.pointsPerClick} x${statvariables.clickMultiplier.toFixed(1)}`;
+    pointsPerClickContainer.innerText = `Cookies Per Click: ${statvariables.pointsPerClick} x${statvariables.clickMultiplier.toFixed(1)}`;
     autoClickerContainer.innerText = `Auto Clicker: ${(statvariables.autoClickerAmount * statvariables.autoClickerMultiplier)}/${((1 / statvariables.autoClickerSpeed).toFixed(2))}s`;
     sweetSpotChanceContainer.innerText = `Sweet Spot Chance: ${statvariables.sweetSpotChance}%`;
     sweetSpotMultiplierContainer.innerText = "Sweet Spot Multiplier: " + statvariables.sweetSpotMultiplier;

@@ -18,11 +18,11 @@
 <body>
     <div id="stats">
         <h1 id="score">0</h1>
-        <p id="pointsPerClick">Points Per Click: 1</p>
+        <p id="pointsPerClick">Cookies Per Click: 1</p>
         <p id="autoClicker">Auto Clicker: 0 cps</p>
         <p id="sweetSpotChance">Sweet Spot Chance: 0%</p>
         <p id="sweetSpotMultiplier">Sweet Spot Amount: 0</p>
-        <p id="pointsPerSecond">Points/s: 0</p>
+        <p id="pointsPerSecond">Cookies/s: 0</p>
     </div>
     <div id="gameField" class="game-container">
         <button id="clicker" onmousedown="event.preventDefault(); handleClick(); playSound(popSound)">
@@ -35,7 +35,7 @@
     <div class="separator">UPGRADES</div>
     <div id="upgradeContainer" class="upgrade-container">
         <div id="upgrades">
-            <button class="upgrade-button" onclick="upgradePointsPerClick()">Points Per Click<p id="pointsPerClickCost">
+            <button class="upgrade-button" onclick="upgradePointsPerClick()">Cookies Per Click<p id="pointsPerClickCost">
                     0</p></button>
             <button class="upgrade-button" onclick="upgradeClickMultiplier()">Click Multiplier<p
                     id="clickMultiplierCost">0</p></button>

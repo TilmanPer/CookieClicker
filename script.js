@@ -45,6 +45,6 @@ function initiateGame() {
         handleAutoClicker();
     }
     setInterval(() => {
-        pointsPerSecond.innerText = `Points/s: ${convertNumber(calculatePointsPerInterval())}`;
+        pointsPerSecond.innerText = `Cookies/s: ${convertNumber(calculatePointsPerInterval())}`;
     }, 1000);
 }
