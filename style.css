@@ -101,7 +101,7 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   transition: opacity 0.3s;
-
+  cursor: default;
   z-index: 100; /* Lower than the .tooltip z-index */
   font-size: 1rem;
   text-align: start;
