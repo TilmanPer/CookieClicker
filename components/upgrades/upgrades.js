@@ -124,19 +124,27 @@ function canPurchase(cost) {
 let tooltipTimer;
 buttons = document.getElementsByClassName("upgrade-button");
 for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("mouseenter", function () {
+
+    buttons[i].addEventListener("mouseenter", function (event) {
         tooltiptimer = setTimeout(() => {
-            tooltip = document.createElement("div");
-            tooltip.classList.add("tooltip");
-            tooltip.innerText = buttons[i].getAttribute("data-tooltip");
-            buttons[i].appendChild(tooltip);
+            buttons[i].classList.add("tooltip");
         }, 1000);
+
+        buttons[i].addEventListener("mousedown", function () {
+            //restart timer
+            clearTimeout(tooltiptimer);
+            buttons[i].classList.remove("tooltip");
+
+            //restart
+            tooltiptimer = setTimeout(() => {
+                buttons[i].classList.add("tooltip");
+            }, 1000);
+        });
     });
+
     buttons[i].addEventListener("mouseleave", function () {
         clearTimeout(tooltiptimer);
-        if (tooltip) {
-            tooltip.remove();
-        }
+        buttons[i].classList.remove("tooltip");
     });
 }
 

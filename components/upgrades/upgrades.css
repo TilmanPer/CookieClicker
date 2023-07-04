@@ -28,6 +28,7 @@
   cursor: pointer;
   box-shadow: 5px 5px 0 var(--accent-color);
   transition: all 0.2s ease-in-out;
+  z-index: 100;
 }
 
 .upgrade-button:hover {

@@ -33,25 +33,34 @@
     </div>
     <div class="separator">UPGRADES</div>
     <div id="upgradeContainer" class="upgrade-container">
-        <div id="upgrades">
-            <button class="upgrade-button" onclick="upgradePointsPerClick()">Cookies Per Click<p id="pointsPerClickCost">
-                    0</p></button>
-            <button class="upgrade-button" onclick="upgradeClickMultiplier()">Click Multiplier<p
-                    id="clickMultiplierCost">0</p></button>
-            <button class="upgrade-button" onclick="upgradeAutoClickerAmount()">Auto Clicker Amount<p
-                    id="autoClickerAmountCost">0</p></button>
-            <button class="upgrade-button" onclick="upgradeAutoClickerSpeed()">Auto Clicker Speed<p
+        <div id="upgrades"><button class="upgrade-button" onclick="upgradePointsPerClick()"
+                data-tooltip="Increase the number of cookies you get per click by. 1/upgrade">Cookies Per
+                Click<p id="pointsPerClickCost">0</p>
+            </button>
+            <button class="upgrade-button" onclick="upgradeClickMultiplier()"
+                data-tooltip="Multiply the cookies you get from every click. 0.1/upgrade">Click Multiplier<p
+                    id="clickMultiplierCost">0</p>
+            </button>
+            <button class="upgrade-button" onclick="upgradeAutoClickerAmount()"
+                data-tooltip="Increase the number of automatic clicks per interval by 1/upgrade. Is not affected by the Click Multiplier and cannot trigger a Sweet Spot.">Auto
+                Clicker Amount<p id="autoClickerAmountCost">0</p></button>
+            <button class="upgrade-button" onclick="upgradeAutoClickerSpeed()"
+                data-tooltip="Increase the speed at which automatic clicks are made. x0.95/upgrade.">Auto Clicker Speed<p
                     id="autoClickerSpeedCost">0</p></button>
-            <button class="upgrade-button" onclick="upgradeSweetSpotChance()">Sweet Spot Chance<p
-                    id="sweetSpotChanceCost">0</p>
+            <button class="upgrade-button" onclick="upgradeSweetSpotChance()"
+                data-tooltip="Increase the chance of hitting a sweet spot and gaining extra cookies. 1%/upgrade.">Sweet Spot Chance
+                <p id="sweetSpotChanceCost">0</p>
             </button>
-            <button class="upgrade-button" onclick="upgradeSweetSpotMultiplier()">Sweet Spot Multiplier<p
-                    id="sweetSpotMultiplierCost">0</p>
+            <button class="upgrade-button" onclick="upgradeSweetSpotMultiplier()"
+                data-tooltip="Increase the multiplier for cookies gained when hitting a sweet spot. 5/upgrade.">Sweet Spot
+                Multiplier<p id="sweetSpotMultiplierCost">0</p></button>
+            <button class="upgrade-button" onclick="upgradeAutoClickerMultiplier()"
+                data-tooltip="Multiply the amount of Auto Clickers by +1/upgrade.">Auto Clicker Multiplier
+                <p id="autoClickerMultiplierCost">0</p>
             </button>
-            <button class="upgrade-button" onclick="upgradeAutoClickerMultiplier()">Auto Clicker Multiplier<p
-                    id="autoClickerMultiplierCost">0</p>
-            </button>
-            <button class="upgrade-button disabled" onclick="">COMING SOON<p id=""></p>
+
+            <button class="upgrade-button disabled" onclick="">COMING SOON<p id=""
+                    data-tooltip="coming soon..."></p>
             </button>
 
         </div>
