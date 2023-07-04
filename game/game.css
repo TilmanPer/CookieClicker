@@ -16,6 +16,7 @@
   border-radius: 50%;
   background-color: #411900;
   border: none;
+  outline: none;
   background-color: transparent;
   display: flex;
   justify-content: center;

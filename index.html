@@ -24,8 +24,9 @@
         <p id="sweetSpotMultiplier">Sweet Spot Amount: 0</p>
         <p id="pointsPerSecond">Cookies/s: 0</p>
     </div>
+    <button id="muteBtn" onclick="toggleMute(); this.innerText = this.innerText == '🔊' ? '🔈' : '🔊'">🔊</button>
     <div id="gameField" class="game-container">
-        <button id="clicker" onmousedown="event.preventDefault(); handleClick(); playSound(popSound)">
+        <button id="clicker" onmousedown="handleClick(); playSound(popSound)">
             <img src="./assets/images/cookie.png" alt="Cookie Clicker" draggable="false">
         </button>
         <div id="autoClickerContainer">

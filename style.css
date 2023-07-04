@@ -30,6 +30,27 @@ body {
   text-shadow: 2px 1px 0 var(--accent-color);
 }
 
+#muteBtn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  background-color: transparent;
+  text-shadow: 0 0 10px var(--primary-color);
+  opacity: 0.3;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  z-index: 100;
+}
+
+#muteBtn:hover {
+  opacity: 1;
+}
+
 #score {
   font-size: 4rem;
   line-height: normal;
@@ -39,6 +60,14 @@ body {
 .tooltip {
   position: absolute;
   border: none;
+}
+
+@media screen and (max-width: 1400px) {
+  #muteBtn {
+    top: 10px;
+    right: 10px;
+    left: auto;
+  }
 }
 
 @media screen and (max-width: 600px) {

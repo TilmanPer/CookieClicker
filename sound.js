@@ -8,6 +8,7 @@ function playSound(audio) {
     //set volume
     let clone = audio.cloneNode(true);
     clone.volume = muted ? 0 : 0.1;
+    console.log(muted);
     clone.play();
 }
 
@@ -26,13 +27,13 @@ function unmuteSound() {
     muted = false;
 }
 
-window.onblur = function () {
-    muted = true;
-    window.onfocus = function () {
-        muted = false;
-    }
+function toggleMute(){
+    muted = !muted;
 }
 
-
-//check for any type of interaction to enable sound
-window.addEventListener('click', unmuteSound);
+//prevent sound from playing before user interaction
+window.addEventListener("click", () => {
+    if (muted) {
+        muted = false;
+    }
+},{once: true});
